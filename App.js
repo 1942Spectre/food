@@ -1,20 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import {CreateAppContainer} from 'react-navigation';
+import {CreateStackNavigator} from 'react-navigation-stack';
+import SearchScreen from './src/screens/SearchScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+const navigator = CreateStackNavigator({
+  Search: SearchScreen
+},{
+  initialRouteName:'Search',
+  defaultNavigationOptions:{
+    title:'Business Search'
+  }
+})
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default CreateStackNavigator
