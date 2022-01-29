@@ -3,37 +3,42 @@ import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react
 
 function RestaurantListItem(item) {
     return (
-        <View style={styles.container}>
-            <Image
-                style={styles.image}
-                source={{
-                    uri: item.image_url,
-                }}
-            />
+        <TouchableOpacity>
+            <View style={styles.container}>
+                <Image
+                    style={styles.image}
+                    source={{
+                        uri: item.image_url,
+                    }}
+                />
 
-            <Text style={styles.name}> {item.name} </Text>
-            <Text style={styles.overview}> rating: {item.rating} , {item.reviews} reviews.</Text>
-        </View>
+                <Text style={styles.name}> {item.name} </Text>
+                <Text style={styles.overview}> rating: {item.rating} , {item.review_count} reviews.</Text>
+            </View>
+        </TouchableOpacity>
     )
 }
 
 var styles = StyleSheet.create({
-    container:{
-        alignItems:"stretch",
-        width:250,
+    container: {
+        alignItems: "stretch",
+        width: 250,
+        marginLeft:15
     },
-    image:{
-        width:240,
+    image: {
+        width: 250,
+        marginBottom:5,
+        borderRadius:5,
         height: 120,
-        alignSelf:'center'
+        alignSelf: 'center'
     },
-    name:{
-        fontSize:10,
-        fontWeight:"600"
+    name: {
+        fontSize: 16,
+        fontWeight: "800"
     },
-    overview:{
-        fontSize:6,
-        fontWeight:"100"
+    overview: {
+        fontSize: 12,
+        fontWeight: "100"
     }
 })
 

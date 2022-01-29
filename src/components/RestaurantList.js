@@ -8,6 +8,7 @@ function RestaurantList(kwargs) {
         <View style={styles.listContainer}>
             <Text style={styles.title}>{kwargs.title}</Text>
             <FlatList
+                showsHorizontalScrollIndicator={false}
                 horizontal={true}
                 data={kwargs.context}
                 keyExtractor={(result) => result.id}
@@ -23,15 +24,14 @@ function RestaurantList(kwargs) {
 const styles = StyleSheet.create({
     listContainer: {
         backgroundColor: "#fff",
-        borderBottomWidth: 1,
-        shadowColor: "#111",
-        shadowOpacity: .3,
-        borderColor: "#F0EEEE",
-        flex:1
+        justifyContent:"flex-start",
+        paddingBottom:20
 
     },
     title: {
-        color: "#666",
+        marginLeft:15,
+        marginBottom:5,
+        color: "#000",
         fontSize: 18,
         fontWeight: '500'
     }
