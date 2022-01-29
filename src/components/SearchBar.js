@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         flexBasis:'auto',
         backgroundColor:'#F0EEEE',
         width:'80%',
-        height:40
+        height:35
     },
     input:{
         flex:1,
