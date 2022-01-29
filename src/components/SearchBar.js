@@ -1,15 +1,20 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, TextInput} from 'react-native'
+import { Ionicons } from '@expo/vector-icons'; 
 
-function SearchBar(changeText){
-
-    [state,changeState] = useState("");
+function SearchBar(kwargs){
 
     return (
-        <View>
+        <View style={styles.box}>
+            <Ionicons name="search" size={24} color="black"  style={styles.icon} />
             <TextInput
-            value={state}
-            onChangeText={(text) => changeState(text)}
+            autoCapitalize='none'
+            autoCorrect={false}
+            style={styles.input}
+            value={kwargs.termState}
+            onChangeText={kwargs.onTermEdit}
+            placeholder='Search'
+            onEndEditing={kwargs.onTermSubmit}
             />
         </View>
     )
@@ -17,13 +22,27 @@ function SearchBar(changeText){
 
 const styles = StyleSheet.create({
     box:{
-        borderColor:'black',
-        borderWidth:5,
         borderRadius:2,
         display:"flex",
+        marginHorizontal:50,
+        marginVertical:10,
+        flexDirection:'row',
+        justifyContent:'space-around',
+        flexBasis:'auto',
+        backgroundColor:'#F0EEEE',
+        width:'80%',
+        height:40
     },
     input:{
-        backgroundColor:'#dee2e6'
+        flex:1,
+        marginHorizontal:'auto',
+        fontSize:18,
+    },
+    icon:{
+        fontSize:30,
+        alignSelf:'center',
+        marginHorizontal:10
+        
     }
 })
 
