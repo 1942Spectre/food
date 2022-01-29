@@ -3,17 +3,23 @@ import { View, Text, StyleSheet, FlatList, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import RestaurantListItem from './RestaurantListItem';
 
-function RestaurantList(kwargs) {
+
+
+function RestaurantList(props) {
+
+    if(!(props.context.length > 0)){
+        return null;
+    }
     return (
         <View style={styles.listContainer}>
-            <Text style={styles.title}>{kwargs.title}</Text>
+            <Text style={styles.title}>{props.title}</Text>
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal={true}
-                data={kwargs.context}
+                data={props.context}
                 keyExtractor={(result) => result.id}
                 renderItem={({ item }) => {
-                    return RestaurantListItem(item)
+                    return RestaurantListItem(item,props.navigation)
                 }
                 }
             />

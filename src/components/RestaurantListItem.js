@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native'
 
-function RestaurantListItem(item) {
+function RestaurantListItem(item,navigation) {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Results",{id:item.id})} >
             <View style={styles.container}>
                 <Image
                     style={styles.image}
@@ -19,7 +19,7 @@ function RestaurantListItem(item) {
     )
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         alignItems: "stretch",
         width: 250,

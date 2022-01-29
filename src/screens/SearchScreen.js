@@ -7,8 +7,7 @@ import RestaurantList from '../components/RestaurantList';
 
 
 
-
-function SearchScreen() {
+function SearchScreen(props) {
 
     var [searchTerm, termChange] = useState("")
     let [searchApi, businesses, errorMessage] = useBusinesses()
@@ -20,8 +19,7 @@ function SearchScreen() {
     }
 
     return (
-        <View style={{flex:1}}>
-
+        <>
             <View style={styles.header}>
                 <SearchBar
                     onTermEdit={termChange}
@@ -33,12 +31,12 @@ function SearchScreen() {
             <ScrollView style={{paddingBottom:20}}>
                 {errorMessage ? <Text>{errorMessage}</Text> : null}
                 <View style={{ flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start', height: "90%" }}>
-                    <RestaurantList title="Cost Effective" context={priceFilter("$")}></RestaurantList>
-                    <RestaurantList title="Bit Pricier" context={priceFilter("$$")} ></RestaurantList>
-                    <RestaurantList title="Big Spender" context={priceFilter("$$$")} ></RestaurantList>
+                    <RestaurantList title="Cost Effective" navigation={props.navigation} context={priceFilter("$")}></RestaurantList>
+                    <RestaurantList title="Bit Pricier" navigation={props.navigation}  context={priceFilter("$$")} ></RestaurantList>
+                    <RestaurantList title="Big Spender" navigation={props.navigation}  context={priceFilter("$$$")} ></RestaurantList>
                 </View>
             </ScrollView>
-        </View >
+        </>
 
 
     )
